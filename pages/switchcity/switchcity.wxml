@@ -1,3 +1,25 @@
+<view>当前选择城市：{{city}}</view>
+            
+
+            <view style="margin-left: 15px;margin-bottom: 15px">
+                <text class="hor" >国内热门城市</text>
+                <view >
+                    <view class="kuai" data-city="北京" bindtap = "bindCity">北京</view>
+                    <view class="kuai" data-city="上海" bindtap = "bindCity">上海</view>
+                    <view class="kuai" data-city="天津" bindtap = "bindCity">天津</view>
+                    <view class="kuai" data-city="广州" bindtap = "bindCity">广州</view>
+                    <view class="kuai" data-city="成都" bindtap = "bindCity">成都</view>
+                    <view class="kuai" data-city="杭州" bindtap = "bindCity">杭州</view>
+                    <view class="kuai" data-city="深圳" bindtap = "bindCity">深圳</view>
+                    <view class="kuai" data-city="苏州" bindtap = "bindCity">苏州</view>
+                    <view class="kuai" data-city="重庆" bindtap = "bindCity">重庆</view>
+                    <view class="kuai" data-city="武汉" bindtap = "bindCity">武汉</view>
+                    <view class="kuai" data-city="厦门" bindtap = "bindCity">厦门</view>
+                    <view class="kuai" data-city="南京" bindtap = "bindCity">南京</view>
+                </view>
+            </view>
+
+
 <view class="searchLetter touchClass">
     <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" wx:key="index" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">{{item.name}}</view>
 </view>
@@ -7,7 +29,7 @@
     {{showLetter}}
 </view>
 </block>
-<view>当前选择城市：{{city}}</view>
+
 <scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
     <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
         <view class="item_letter">{{item.initial}}</view>
