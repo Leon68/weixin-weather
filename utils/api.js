@@ -2,7 +2,7 @@ let app = getApp()
 
 
 function get24hWeather(cityid){
-  console.log('now'+ cityid)
+
   return new Promise((resolve, reject)=>{
     wx.request({
       url: 'https://weixin.jirengu.com/weather/future24h?key=study_javascript_in_jirengu.com',
@@ -10,8 +10,8 @@ function get24hWeather(cityid){
         cityid
       },
       success (res) {
-        console.log('24h')
-        console.log(res)
+
+       
         if(res.data&& res.data.status && res.data.status==='OK'&& res.data.hourly){
           resolve(res.data.hourly)
         }else{
@@ -27,7 +27,7 @@ function get24hWeather(cityid){
 }
 function getWeather(location) {
   let city = location ? location : ''
-  console.log(city)
+
   return new Promise((resolve, reject) => {
     wx.request({
       url: 'https://weixin.jirengu.com/weather?key=study_javascript_in_jirengu.com',
@@ -35,8 +35,7 @@ function getWeather(location) {
         "location": city
       },
       success(res) {
-        console.log('woshicity')
-        console.log(res)
+   
         if (res.data && res.data.weather && res.data.weather.length > 0) {
           resolve(app.globalData.weather = res.data.weather[0])
         } else {
@@ -44,7 +43,7 @@ function getWeather(location) {
         }
       },
       fail() {
-        console.log('cityid2')
+
         reject({ status: 'error', msg: '获取城市 id 失败' })
       }
     })

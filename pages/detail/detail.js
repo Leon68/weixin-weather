@@ -7,8 +7,8 @@ Page({
   data: {
   },
 
-  onUpper(e){
-    console.log('upper')
+  onUpper(){
+
   },
 
 
@@ -30,7 +30,7 @@ Page({
       }).catch(_this.onError)
   },
 
-  onLoad (options){
+  onLoad (){
     
   },
 

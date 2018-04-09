@@ -23,7 +23,7 @@ Page({
     // console.log(cityInfo);
 
     var sysInfo = wx.getSystemInfoSync();
-    console.log(sysInfo);
+  
     var winHeight = sysInfo.windowHeight;
 
     //添加要匹配的字母范围值
@@ -46,7 +46,7 @@ Page({
       cityList: cityList
     })
 
-    console.log(this.data.cityInfo);
+
   },
   onReady: function () {
     // 生命周期函数--监听页面初次渲染完成
@@ -58,14 +58,11 @@ Page({
   },
   onHide: function () {
     // 生命周期函数--监听页面隐藏
-    console.log("switchHide")
+
 
   },
   onUnload: function () {
-    console.log("switchUnload")
-    wx.navigateTo({
-      url: '../../pages/index/index',
-    })
+ 
 
   },
   onPullDownRefresh: function () {
@@ -76,14 +73,7 @@ Page({
     // 页面上拉触底事件的处理函数
 
   },
-  onShareAppMessage: function () {
-    // 用户点击右上角分享
-    return {
-      title: 'title', // 分享标题
-      desc: 'desc', // 分享描述
-      path: 'path' // 分享路径
-    }
-  },
+ 
   searchStart: function (e) {
     var showLetter = e.currentTarget.dataset.letter;
     var pageY = e.touches[0].pageY;
@@ -101,7 +91,7 @@ Page({
     var tHeight = this.data.tHeight;
     var bHeight = this.data.bHeight;
     var showLetter = 0;
-    console.log(pageY);
+
     if (startPageY - pageY > 0) { //向上移动
       if (pageY < tHeight) {
         // showLetter=this.mateLetter(pageY,this);
@@ -126,8 +116,8 @@ Page({
         cityid
       },
       success (res) {
-        console.log('now')
-        console.log(res)
+      
+
         if(res.data && res.data.status && res.data.status === 'OK' && res.data.weather[0]){
           resolve(res.data.weather[0])
         }else {
@@ -170,7 +160,7 @@ Page({
     })
   },
   bindScroll: function (e) {
-    console.log(e.detail)
+
   },
   setScrollTop: function (that, showLetter) {
     var scrollTop = 0;

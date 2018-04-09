@@ -53,29 +53,8 @@
     align-items: center;
     border-bottom: 1px solid #f8f8f8
 }
-.searchLetter{
-  position: fixed;
-  right: 0;
-  width: 20px;
-  height: 80%;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  color: #666;
-  z-index: 1
-}
-.searchLetter view{
-  height: 70rpx;
-}
-.touchClass{
-  top: 50px;
-  margin-top: 35px;
-  right: 0;
-  background-color: #fff;
-  color: #1296db;
-  font-weight: 700;
-}
+
+
 .hor{
   font-size: 14px;
   color: #999999;
