@@ -118,7 +118,28 @@ Page({
     // console.log(e);
     // var showLetter=e.currentTarget.dataset.letter;
     var that = this;
-    setTimeout(function () {
+    setTimeout(function () {function getNowWeather(cityid){
+  return new Promise((resolve, reject)=>{
+    wx.request({
+      url: 'https://weixin.jirengu.com/weather?key=study_javascript_in_jirengu.com',
+      data: {
+        cityid
+      },
+      success (res) {
+        console.log('now')
+        console.log(res)
+        if(res.data && res.data.status && res.data.status === 'OK' && res.data.weather[0]){
+          resolve(res.data.weather[0])
+        }else {
+          reject({status: 'error', msg: '获取天气失败'})
+        }
+      },
+      fail (){
+        reject({status: 'error', msg: '获取天气失败'})
+      }
+    })
+  })
+}
       that.setData({
         isShowLetter: false
       })
@@ -173,8 +194,6 @@ Page({
   bindCity: function (e) {
     var city = e.currentTarget.dataset.city;
     this.setData({ city: city })
-    this.setData({ inputCity: city })
-  
-    console.log(app.globalData.inputCity)
+    app.globalData.inputCity = city
   }
 })

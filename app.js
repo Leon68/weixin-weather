@@ -17,6 +17,6 @@ App({
   globalData: {
     weather: null,
     hourly: null,
-    inputCity: null
+    inputCity: ''
   }
 })
