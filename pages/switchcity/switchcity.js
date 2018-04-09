@@ -1,8 +1,7 @@
 var city = require('../../utils/city.js');
 var app = getApp()
 
-//欢迎关注:http://www.wxapp-union.com/portal.php
-//CSDN微信小程序开发专栏:http://blog.csdn.net/column/details/13721.html
+
 Page({
   data: {
     searchLetter: [],

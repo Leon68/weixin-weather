@@ -6,21 +6,13 @@ Page({
 
   data: {
   },
-
-  onUpper(){
-
-  },
-
-
   onShow () {
     var _this = this
-    console.log('load')
+ 
     if (app.globalData.weather) {
       _this.setData({ weather: app.globalData.weather })
       return
     }
-
-
     API.getWeather(app.globalData.inputCity)
       .then((weather) => {
         weather.format_last_update = Util.formatTime(weather.last_update)
@@ -29,7 +21,6 @@ Page({
         app.globalData.weather = weather
       }).catch(_this.onError)
   },
-
   onLoad (){
     
   },

@@ -1,13 +1,13 @@
 let app = getApp()
 
 
-function get24hWeather(cityid){
+function get24hWeather(location){
 
   return new Promise((resolve, reject)=>{
     wx.request({
       url: 'https://weixin.jirengu.com/weather/future24h?key=study_javascript_in_jirengu.com',
       data: {
-        cityid
+        location
       },
       success (res) {
 
