@@ -1,0 +1,2 @@
+[26434:26434:0409/204804.441447:ERROR:sync_control_vsync_provider.cc(64)] glXGetSyncValuesOML should not return TRUE with a media stream counter of 0.
+[26398:26398:0409/210906.013620:ERROR:gpu_process_transport_factory.cc(923)] Lost UI shared context.
