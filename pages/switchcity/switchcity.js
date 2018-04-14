@@ -180,9 +180,13 @@ Page({
       scrollTop: scrollTop
     })
   },
-  bindCity: function (e) {
+  bindCity (e) {
     var city = e.currentTarget.dataset.city;
     this.setData({ city: city })
     app.globalData.inputCity = city
+    wx.navigateBack({
+      // url: '../../pages/index/index',
+    })
+    console.log('hh')
   }
 })
