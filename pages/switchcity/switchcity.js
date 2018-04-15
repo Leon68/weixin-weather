@@ -26,8 +26,9 @@ Page({
     var winHeight = sysInfo.windowHeight;
 
     //添加要匹配的字母范围值
-    //1、更加屏幕高度设置子元素的高度
+    //1、根据屏幕高度设置子元素的高度
     var itemH = winHeight / searchLetter.length;
+    console.log(itemH)
     var tempObj = [];
     for (var i = 0; i < searchLetter.length; i++) {
       var temp = {};

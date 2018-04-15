@@ -11,10 +11,6 @@
     color: #666;
     z-index: 1
 }
-.searchLetter view{
-    height: 66rpx;
-    padding-top: 12rpx
-}
 .touchClass{
     background-color: rgba(0, 0, 0,0.5);
     color: #fff;

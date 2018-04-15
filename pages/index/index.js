@@ -68,8 +68,8 @@ Page({
           })
           _this.setData({ hourly })
           app.globalData.hourly = hourly
-           wx.stopPullDownRefresh()
         }).catch(_this.onError)
+      wx.stopPullDownRefresh()
     },
     onShareAppMessage: function () {
         // 用户点击右上角分享
