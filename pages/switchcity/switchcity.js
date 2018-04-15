@@ -185,8 +185,7 @@ Page({
     this.setData({ city: city })
     app.globalData.inputCity = city
     wx.navigateBack({
-      // url: '../../pages/index/index',
+      delta:1
     })
-    console.log('hh')
   }
 })

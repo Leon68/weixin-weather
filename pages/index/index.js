@@ -50,7 +50,6 @@ Page({
 
     } ,
     onPullDownRefresh: function() {
-      console.log('pulldown')
       let _this = this
       app.globalData.inputCity = ''
       API.getWeather(app.globalData.inputCity)
@@ -69,7 +68,7 @@ Page({
           })
           _this.setData({ hourly })
           app.globalData.hourly = hourly
-          wx.stopPullDownRefresh()
+           wx.stopPullDownRefresh()
         }).catch(_this.onError)
     },
     onShareAppMessage: function () {
@@ -77,7 +76,7 @@ Page({
         return {
             title: '天气', // 分享标题
             desc: '要送伞么', // 分享描述
-            path: '/page/index' // 分享路径
+            path: '/pages/index/index' // 分享路径
         }
     },
 

@@ -8,9 +8,8 @@
     "navigationBarBackgroundColor": "#3a94d2",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "球球天气",
-    "backgroundColor": "#ccccc",
-    "backgroundTextStyle": "light",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
   },
   "tabBar": {
     "list": [
