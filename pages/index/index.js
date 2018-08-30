@@ -11,12 +11,14 @@ Page({
             url: '../../pages/switchcity/switchcity',
         })
     },
-    getWeatherAll() {
+
+    getWeatherAll(city) {
       let _this = this
-      API.getCityId(app.globalData.location)
+      API.getCityId(city)
         .then((cityId) => {
           console.log(cityId)
           app.globalData.cityId = cityId.basic.cid.slice(2)
+          app.globalData.inputCity = cityId.basic.parent_city
           
           API.getWeather(app.globalData.cityId)
             .then((weather) => {
@@ -38,15 +40,26 @@ Page({
             }).catch(_this.onError)
         }).catch(_this.onError)
     },
-
+    getWeatherFirst(){
+      var _this = this
+      wx.getLocation({
+        type: 'wgs84',
+        success: function (res) {
+          console.log('location',location)
+          let location = res.longitude + ',' + res.latitude
+          _this.getWeatherAll(location)
+        }
+      })
+    },
     onLoad(options) {
+      this.getWeatherFirst()
 
        
     },
     
     onShow() {
       
-     this.getWeatherAll()
+     this.getWeatherAll(app.globalData.inputCity)
             
     },
     onReady() {
@@ -59,8 +72,7 @@ Page({
 
     } ,
     onPullDownRefresh: function() {
-      app.globalData.inputCity = ''
-      this.getWeatherAll()
+      this.getWeatherFirst()
       wx.stopPullDownRefresh()
     },
     onShareAppMessage: function () {
