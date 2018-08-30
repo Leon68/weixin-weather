@@ -57,7 +57,7 @@
   height: 120px;
 }
 .hourly .wrap {
-  width: 1440px;
+  width: 2880rpx;
 }
 .hourly .hour {
   width: 120rpx;
@@ -67,6 +67,7 @@
   color: #fff;
   font-size: 26rpx;
   display: inline-block;
+ 
 }
 .hourly .hour .text {
   padding-bottom: 6px;
@@ -75,7 +76,9 @@
   width: 60rpx;
   height: 60rpx;
 }
-
+.suggestion {
+  background-color: rgb(236, 227, 208);
+}
 .suggestion>view{
   padding: 40rpx 20rpx;
   border-bottom: 1px solid #eee;
@@ -91,8 +94,10 @@
 .suggestion image{
   width: 100rpx;
   height: 100rpx;
-  opacity: 0.5;
+  /* opacity: 0.5; */
   float: left;
+  padding-top: 4px;
+  color: #999;
 }
 .suggestion .detail {
   margin-left: 140rpx;
@@ -100,6 +105,9 @@
 .suggestion .detail .title {
   font-size: 28rpx;
   color: #666;
+}
+.suggestion .detail .title strong {
+  padding-right: 4px;
 }
 
 .suggestion .detail .description {

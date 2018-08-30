@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx1d24ddfb394d23ed",
-	"projectname": "weixin-weather",
+	"projectname": "weather%201",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

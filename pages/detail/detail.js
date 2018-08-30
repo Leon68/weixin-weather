@@ -10,15 +10,23 @@ Page({
     var _this = this
  
     if (app.globalData.weather) {
+      console.log('就该选我',app.globalData.weather)
       _this.setData({ weather: app.globalData.weather })
       return
     }
-    API.getWeather(app.globalData.inputCity)
+    API.getWeather(app.globalData.cityId)
       .then((weather) => {
-        weather.format_last_update = Util.formatTime(weather.last_update)
-        weather.bg = Util.getBackground(weather.now.code)
-        _this.setData({ weather })
-        app.globalData.weather = weather
+              
+          weather.bg = weather.forecast[2].day.bgPic
+          weather.forecast.forEach((item) => {
+            item.imgDay = `../../images/weather/${item.day.type}.png`
+            item.imgNight = `../../images/weather/${item.night.type}.png`
+            item.timeDate = item.date.slice(4,9)
+          })
+          
+          _this.setData({ weather })
+          app.globalData.weather = weather
+         
       }).catch(_this.onError)
   },
   onLoad (){

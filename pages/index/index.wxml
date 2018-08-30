@@ -3,28 +3,29 @@
     <view class="extra">
       <view bind:tap="switchCity">
         <image class="pin" src="../../images/background/pin.png" />
-        <text class="city" >{{weather.city_name}}</text>
+        <text class="city" >{{weather.meta.city}}</text>
       </view>      
       <text class="date">{{weather.format_last_update}}</text>
     </view>
     <view class="main">
-      <view class="temperature">{{weather.now.temperature}}<text>℃</text></view>
-      <view class="weather">{{weather.now.text}}</view>
-      <view class="weather">空气质量 {{weather.now.air_quality.city.quality}}</view>
+      <view class="temperature">{{weather.observe.temp}}<text>℃</text></view>
+      <view class="weather">{{weather.observe.wthr}}</view>
+      <view class="weather">空气质量 {{weather.evn.quality}}</view>
       <view class="others">
-        <view class="pm">PM2.5 {{weather.now.air_quality.city.pm25}}</view>
-        <view class="wind">风向 {{weather.now.wind_direction}}</view>
-        <view class="pm">风力 {{weather.now.wind_scale}}</view>
-        <view class="humidity">湿度 {{weather.now.humidity}}</view>
+        <view class="pm">PM2.5 {{weather.evn.pm25}}</view>
+        <view class="wind">风向 {{weather.observe.wd}}</view>
+        <view class="pm">风力 {{weather.observe.wp}}</view>
+        <view class="humidity">湿度 {{weather.observe.shidu}}</view>
       </view>
     </view> 
     <scroll-view scroll-x  class="hourly">
       <view class="wrap">
-        <view class="hour" wx:for="{{hourly}}" wx:for-item="item">
-          <view>{{item.format_time}}</view>
+        <view class="hour" wx:for="{{weather.hourfc}}" wx:for-item="item">
+          <view>{{item.format_time}}点</view>
           <image src="{{item.img}}" />
-          <view class="text">{{item.text}}</view> 
-          <view>{{item.temperature}}°</view> 
+          <view class="text">{{item.type_desc}}</view> 
+          <view>{{item.wthr}}°C</view> 
+           
         </view>        
       </view>
 
@@ -32,48 +33,16 @@
   </view>
 
   <view class="suggestion">
-    <view class="car_washing">
-      <image src="../../images/background/car_washing.png" />
-      <view class="detail">
-        <view class="title">洗车:{{weather.today.suggestion.car_washing.brief}}</view>
-        <view class="description">{{weather.today.suggestion.car_washing.details}}</view>
+   
+      <view class="indexes" wx:for="{{weather.indexes}}" wx:for-item="item">
+        <image src="{{item.ext.icon}}" />
+        <view class="detail">
+          <view class="title"><strong>{{item.name}}:</strong>{{weather.indexes[1].value}}</view>
+          <view class="description">{{item.desc}}</view>
+        </view>
       </view>
-    </view>
-    <view class="dressing">
-      <image src="../../images/background/dressing.png" />
-      <view class="detail">
-        <view class="title">穿衣:{{weather.today.suggestion.dressing.brief}}</view>
-        <view class="description">{{weather.today.suggestion.dressing.details}}</view>
-      </view>
-    </view>
-    <view class="flu">
-      <image src="../../images/background/flu.png" />
-      <view class="detail">
-        <view class="title">感冒:{{weather.today.suggestion.flu.brief}}</view>
-        <view class="description">{{weather.today.suggestion.flu.details}}</view>
-      </view>
-    </view>
-    <view class="travel">
-      <image src="../../images/background/travel.png" />
-      <view class="detail">
-        <view class="title">旅游:{{weather.today.suggestion.travel.brief}}</view>
-        <view class="description">{{weather.today.suggestion.travel.details}}</view>
-      </view>
-    </view>
-    <view class="sport">
-      <image src="../../images/background/sport.png" />
-      <view class="detail">
-        <view class="title">运动:{{weather.today.suggestion.sport.brief}}</view>
-        <view class="description">{{weather.today.suggestion.sport.details}}</view>
-      </view>
-    </view>  
-    <view class="uv">
-      <image src="../../images/background/uv.png" />
-      <view class="detail">
-        <view class="title">防晒:{{weather.today.suggestion.uv.brief}}</view>
-        <view class="description">{{weather.today.suggestion.uv.details}}</view>
-      </view>
-    </view>  
+   
+    
   </view>
 
 </view>

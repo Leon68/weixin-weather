@@ -1,19 +1,20 @@
 let app = getApp()
 
 
-function get24hWeather(location){
-
+function getWeather(location){
+  let city = location
+  console.log(city)
   return new Promise((resolve, reject)=>{
     wx.request({
-      url: 'https://weixin.jirengu.com/weather/future24h?key=study_javascript_in_jirengu.com',
+      url: 'http://zhwnlapi.etouch.cn/Ecalender/api/v2/weather?',
       data: {
-        location
+       "citykey": city
       },
       success (res) {
 
-       
-        if(res.data&& res.data.status && res.data.status==='OK'&& res.data.hourly){
-          resolve(res.data.hourly)
+        console.log('hourly',res.data)
+        if(res.data&& res.data.hourfc.length >0){
+          resolve(res.data)
         }else{
           reject({status: 'error', msg: '获取当天24小时天气失败'})
         }
@@ -25,19 +26,23 @@ function get24hWeather(location){
     })
   })
 }
-function getWeather(location) {
-  let city = location ? location : ''
 
+
+function getCityId(location) {
+ 
+  let city = location ? location : 'auto_ip'
+  console.log(city)
   return new Promise((resolve, reject) => {
     wx.request({
-      url: 'https://weixin.jirengu.com/weather?key=study_javascript_in_jirengu.com',
+      url: 'https://free-api.heweather.com/s6/weather/now?key=54d607c6ea0349be837025b750a778ee',
       data: {
         "location": city
       },
       success(res) {
-   
-        if (res.data && res.data.weather && res.data.weather.length > 0) {
-          resolve(app.globalData.weather = res.data.weather[0])
+        console.log(res.data)
+        if (res.data && res.data.HeWeather6[0] && res.data.HeWeather6.length > 0 ) {
+          console.log('11')
+          resolve(res.data.HeWeather6[0])
         } else {
           reject({ status: 'error', msg: '获取城市 id 失败' })
         }
@@ -51,6 +56,7 @@ function getWeather(location) {
 }
 
 module.exports = {
-  get24hWeather,
-  getWeather
+  getCityId,
+  getWeather,
+ 
 }

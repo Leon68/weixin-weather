@@ -1,4 +1,9 @@
-
+.head {
+  color: #fff;
+  background-size: 100% auto;
+  background-position: center top;
+  
+}
 .day {
   display: flex;
   justify-content: space-around;
@@ -18,4 +23,5 @@
 .day image {
   width: 60rpx;
   height: 60rpx;
+  margin:0 14rpx;
 }
